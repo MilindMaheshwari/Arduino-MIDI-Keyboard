@@ -9,7 +9,7 @@ Required Materials:
 | A1 | Arduino Uno   | A000066    | 1
 | R1 | 10k Resistor   |             | 3
 | B1 | Breadboards with Power Rails | 3
-| B2 | Tactile Switches             | 24
+| B2 | Tactile Switches  |    | 24
 |===
 
 === Folder structure
