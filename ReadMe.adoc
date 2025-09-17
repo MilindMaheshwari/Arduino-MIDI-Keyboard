@@ -1,8 +1,10 @@
 Disclaimer - Project from 2021
 
+== DIY Arduino MIDI Drum-pad 
+
 Hi! This repository details my work on a DIY MIDI Drum-pad powered by an Arduino UNO.
 
-Required Materials:
+== Required Materials:
 
 |===
 | ID | Part name      | Part number | Quantity
