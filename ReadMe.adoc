@@ -4,11 +4,13 @@ Hi! This repository details my work on a DIY MIDI Drum-pad powered by an Arduino
 
 Required Materials:
 
-Arduino Uno
-Breadboards (preferably with dedicated ground and 5V lines)
-24 tactile switches
-
-
+|===
+| ID | Part name      | Part number | Quantity
+| A1 | Arduino Uno   | A000066    | 1
+| R1 | 10k Resistor   |             | 3
+| B1 | Breadboards with Power Rails | 3
+| B2 | Tactile Switches             | 24
+|===
 
 === Folder structure
 
