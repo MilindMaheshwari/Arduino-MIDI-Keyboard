@@ -18,7 +18,7 @@ Required Materials:
 
 ....
  Arduino-MIDI-Keyboard                => Arduino sketch folder
-  ├── 24_MIDI_Keyboard.ino       => main Arduino file
+  ├── 24_button_midi.ino       => main Arduino file
   ├── schematics.png      => (optional) an image of the required schematics
   ├── layout.png          => (optional) an image of the layout
   └── ReadMe.adoc         => this file
