@@ -7,15 +7,17 @@ Required Materials:
 |===
 | ID | Part name      | Part number | Quantity
 | A1 | Arduino Uno   | A000066    | 1
+| B1 | Tactile Switches | | 24
 | R1 | 10k Resistor   |             | 3
-| B1 | Breadboards with Power Rails | 3
-| B2 | Tactile Switches  |    | 24
+| B2 | Breadboards with Power Rails | | 3
+|
+
 |===
 
 === Folder structure
 
 ....
- sketch123                => Arduino sketch folder
+ Arduino-MIDI-Keyboard                => Arduino sketch folder
   ├── sketch123.ino       => main Arduino file
   ├── schematics.png      => (optional) an image of the required schematics
   ├── layout.png          => (optional) an image of the layout
