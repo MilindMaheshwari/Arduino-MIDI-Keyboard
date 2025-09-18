@@ -1,1 +1,50 @@
-const int rcount = 3;const int ccount = 8;int rows[rcount] = {A0,A1,A2};int columns[ccount] = {13,12,11,10,9,8,7,6};int rowState;int debounce = 20;                    /* using a debounce time(in this case 20 milliseconds) it makes sure that the button presses are at least this far apart for a midi note to be sent, to avoid false triggers when you hold down a  button*/unsigned long pretime; void sendMidi(byte cmd, byte pitch, byte vel){     /* Declaring the function send midi. If i say send midi later in the code and three pieces of data after, it takes those pieces of data and converts it into MIDI values(These values can't be read directly by apps like Garageband, so that is why I am using a Serial to MIDI converter*/  Serial.write(cmd);   // Note on or off value  Serial.write(pitch); // The note pitch (60 being middle C)  Serial.write(vel);   //Velocity = How loud the note is on a scale of 0-127(I am using buttons that can only send on and off values, so it will always send the loudest value)}void setup(){  for(int ia = 0; ia < rcount; ia++){    pinMode(rows[ia], INPUT);  }   for(int ib = 0; ib < ccount; ib++){    pinMode(columns[ib], OUTPUT);  }  Serial.begin(57600);}void loop(){  for(int ic = 0; ic < ccount; ic++){              // Sends power to one column at a time    digitalWrite(columns[ic], HIGH);    for(int i = 1; i < rcount + 1; i++){          /* Every time power is sent to a column, it reads all the rows to see if one got power. If it did, a button in that row andthe column with power had to have been pressed. This means you can find exactly what button was pressed*/      rowState = digitalRead(rows[i-1]);                int note = (59 + (ic*rcount) + i);          // It converts which ever button was pressed to a note pitch value(top left button being 60, or middle C)      if (rowState == HIGH && ((millis()-pretime)>debounce)) {        sendMidi(0x90, note, 127);                // If a button is pressed, send a MIDI on message with the pitch of the button(see the gray text just above), and the loudest volume        pretime = millis();      }      else{        if(rowState ==  HIGH){            pretime = millis();        }        else{          sendMidi(0x80, note, 0);                // If no button is pressed, send a MIDI off message        }      }    }    digitalWrite(columns[ic], LOW);  }}
+const int rcount = 3;
+const int ccount = 8;
+int rows[rcount] = {A0,A1,A2};
+int columns[ccount] = {13,12,11,10,9,8,7,6};
+int rowState;
+int debounce = 20;                    /* using a debounce time(in this case 20 milliseconds) it makes sure that the button presses are at least this far apart for a 
+midi note to be sent, to avoid false triggers when you hold down a  button*/
+unsigned long pretime;
+ 
+void sendMidi(byte cmd, byte pitch, byte vel){     /* Declaring the function send midi. If i say send midi later in the code and three pieces of data after, it takes those pieces
+ of data and converts it into MIDI values(These values can't be read directly by apps like Garageband, so that is why I am using a Serial to MIDI converter*/
+  Serial.write(cmd);   // Note on or off value
+  Serial.write(pitch); // The note pitch (60 being middle C)
+  Serial.write(vel);   //Velocity = How loud the note is on a scale of 0-127(I am using buttons that can only send on and off values, so it will always send the loudest value)
+}
+
+void setup(){
+  for(int ia = 0; ia < rcount; ia++){
+    pinMode(rows[ia], INPUT);
+  }
+   for(int ib = 0; ib < ccount; ib++){
+    pinMode(columns[ib], OUTPUT);
+  }
+  Serial.begin(57600);
+}
+
+void loop(){
+  for(int ic = 0; ic < ccount; ic++){              // Sends power to one column at a time
+    digitalWrite(columns[ic], HIGH);
+    for(int i = 1; i < rcount + 1; i++){          /* Every time power is sent to a column, it reads all the rows to see if one got power. If it did, a button in that row and
+the column with power had to have been pressed. This means you can find exactly what button was pressed*/
+      rowState = digitalRead(rows[i-1]);          
+      int note = (59 + (ic*rcount) + i);          // It converts which ever button was pressed to a note pitch value(top left button being 60, or middle C)
+      if (rowState == HIGH && ((millis()-pretime)>debounce)) {
+        sendMidi(0x90, note, 127);                // If a button is pressed, send a MIDI on message with the pitch of the button(see the gray text just above), and the loudest volume
+        pretime = millis();
+      }
+      else{
+        if(rowState ==  HIGH){  
+          pretime = millis();
+        }
+        else{
+          sendMidi(0x80, note, 0);                // If no button is pressed, send a MIDI off message
+        }
+      }
+    }
+    digitalWrite(columns[ic], LOW);
+  }
+}
+
