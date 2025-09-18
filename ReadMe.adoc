@@ -1,4 +1,4 @@
-*Disclaimer - Project from 2021, in the process of redocumenting, will provide images and schematics soon*
+*Disclaimer - Project from 2021, in the process of redocumenting, will provide new images and schematics soon*
 
 == DIY Arduino MIDI Drum-pad 
 
