@@ -12,13 +12,15 @@ Every button is linked to a unique MIDI note, corresponding to a different note 
 
 1. The Arduino finds what key the button press came from, and attaches it to the proper MIDI value
 2. A serial message is processed and sent to be interpreted by the host computer
-3. An app like https://projectgus.github.io/hairless-midiserial[Hairless Serial to MIDI] converts these signals to MIDI notes for the DAW
+3. An interpreter like https://projectgus.github.io/hairless-midiserial[Hairless Serial to MIDI] converts these signals to MIDI notes for the DAW
 4. After this, the Arduino instrument should be recognized by the DAW, and you can start making beats!   
 
 
 == Circuit description 
 
-The goal of this project was to be able to use low-level, easily available materials. For that reason, I avoided the use of multiplexers, which would allow me to connect a lot of sensors to the limited amount of Arduino Digital Input/Output pins. Instead, I used what's known as a *Matrix Circuit:* 
+The first challenge of a project like this was to find how to connect a large amount of sensors to the limited amount of Digital Input/Output pins on my Arduino Uno board. One possible solution would be to buy and use multiplexers. However, I used what's known as a *Matrix Circuit*, allowing me to make more efficient use of the existing I/O pins. 
+
+*To use a Matrix circuit: 
 
 * Each column was connected to one unique output pin
 * Each row was connected to a unique input pin 
@@ -28,6 +30,8 @@ To be able to discern input from keys, signals were sent to one output pin at a 
 * Signal sent to Column 0 
 * Input recieved at Row 2 
 * Button press must have been from button at (2, 0) corresponding to MIDI note 61
+
+This message is then pushed as a serial message to the host computer. 
 
 == Required Materials for Circuit:
 
@@ -56,9 +60,6 @@ This project is released under a MIT License.
 
 === Contributing
 To contribute to this project please contact maheshwarim297 https://id.arduino.cc/maheshwarim297
-
-=== BOM
-Add the bill of the materials you need for this project.
 
 
 === Help
