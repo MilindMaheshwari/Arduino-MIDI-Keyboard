@@ -20,7 +20,7 @@ Every button is linked to a unique MIDI note, corresponding to a different note 
 
 The first challenge of a project like this was to find how to connect a large amount of sensors to the limited amount of Digital Input/Output pins on my Arduino Uno board. One possible solution would be to buy and use multiplexers. However, I used what's known as a *Matrix Circuit*, allowing me to make more efficient use of the existing I/O pins. 
 
-*To use a Matrix circuit: 
+*To use a Matrix circuit:* 
 
 * Each column was connected to one unique output pin
 * Each row was connected to a unique input pin 
