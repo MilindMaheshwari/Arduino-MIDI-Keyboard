@@ -27,7 +27,7 @@ To be able to discern input from keys, signals were sent to one output pin at a 
 
 * Signal sent to Column 0 
 * Input recieved at Row 2 
-* Button press must have been from button at (2, 0) corresponding to MIDI note 
+* Button press must have been from button at (2, 0) corresponding to MIDI note 61
 
 == Required Materials for Circuit:
 
