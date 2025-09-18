@@ -1,4 +1,4 @@
-*Disclaimer - Project from 2021, in the process of redocumenting*
+*Disclaimer - Project from 2021, in the process of redocumenting, will provide images and schematics soon*
 
 == DIY Arduino MIDI Drum-pad 
 
@@ -50,8 +50,8 @@ This message is then pushed as a serial message to the host computer.
 ....
  Arduino-MIDI-Keyboard                => Arduino sketch folder
   ├── 24_button_midi.ino       => main Arduino file
-  ├── schematics.png      => (optional) an image of the required schematics
-  ├── layout.png          => (optional) an image of the layout
+  ├── schematics.png      => an image of the required schematics
+  ├── layout.png          => an image of the layout
   └── ReadMe.adoc         => this file
 ....
 
