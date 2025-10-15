@@ -10,7 +10,7 @@ This project was about creating a DIY MIDI instrument that can work as a physica
 
 Every button is linked to a unique MIDI note, corresponding to a different note on an 88-key keyboard. On each press: 
 
-1. The Arduino finds what key the button press came from, and attaches it to the proper MIDI value
+1. The controller finds which key was pressed, and computes the proper MIDI value
 2. A serial message is processed and sent to be interpreted by the host computer
 3. An interpreter like https://projectgus.github.io/hairless-midiserial[Hairless Serial to MIDI] converts these signals to MIDI notes for the DAW
 4. After this, the Arduino instrument should be recognized by the DAW, and you can start making beats!   
